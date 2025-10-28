@@ -10,7 +10,7 @@
 
       <nav class="nav">
         <a href="index.html">Strona główna</a>
-        <a href="loxone.html">Loxone</a>
+        <a id="loxonene" href="loxone.html">Loxone</a>
         <a href="wod-kan.html">WOD-KAN</a>
         <a href="gaz.html">GAZ</a>
         <a href="pompy.html">Pompy</a>
