@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loxone — Inteligentne domy | InstalSmart</title>
+  <meta name="description" content="InstalSmart — projektujemy i integrujemy systemy Loxone. Kompleksowy nadzór prac, instalacje Miniserver, Audioserver i pełna automatyka domu." />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/logo-favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    .hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6);
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      max-width: 700px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background: #3b8e3b;
+    }
+
+    /* --- Sekcja urządzeń Loxone --- */
+    .loxone-devices {
+      text-align: center;
+      padding: 60px 0;
+      background-color: #f5f5f5;
+      position: relative;
+    }
+
+    .loxone-devices h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex: 0 0 300px;
+      padding: 20px;
+      text-align: center;
+      user-select: none;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: #3b8e3b;
+    }
+
+    .prev {
+      left: 20px;
+    }
+
+    .next {
+      right: 20px;
+    }
+
+    /* Dodatkowo: responsywność */
+    @media (max-width: 768px) {
+      .card {
+        flex: 0 0 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <section class="hero">
+    <img src="images/loxone.jpg" alt="System Loxone inteligentny dom" class="hero-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Loxone — inteligentne domy</h1>
+      <p>Projektujemy i integrujemy systemy Loxone — od projektu, przez instalację, aż po uruchomienie i nadzór. Zapewniamy kompleksową realizację prac na najwyższym poziomie.</p>
+      <a class="btn" href="kontakt.html">Skontaktuj się</a>
+    </div>
+  </section>
+
+  <main class="main-content container">
+
+  <section class="loxone-intro">
+    <h2>Automatyka domu z Loxone</h2>
+    <p>Loxone to system, który automatyzuje Twój dom - oświetlenie, ogrzewanie, zacienianie, bezpieczeństwo i multimedia działają razem, bez ciągłego sterowania.</p>
+  </section>
+
+  <section class="loxone-features">
+    <div class="features-header">
+      <h2>Co zyskujesz dzięki Loxone?</h2>
+    </div>
+    <section>
+  <div class="features-grid">
+    <a href="oswietlenie.html" class="feature-item">
+      <span class="feature-icon">💡</span><span>Automatyczne oświetlenie</span>
+    </a>
+    <a href="temperatura.html" class="feature-item">
+      <span class="feature-icon">🌡️</span><span>Komfortowa temperatura</span>
+    </a>
+    <a href="ochrona.html" class="feature-item">
+      <span class="feature-icon">🔒</span><span>Bezpieczny smart home</span>
+    </a>
+    <a href="energia.html" class="feature-item">
+      <span class="feature-icon">⚡</span><span>Zarządzanie energią</span>
+    </a>
+    <a href="multimedia.html" class="feature-item">
+      <span class="feature-icon">🎬</span><span>Efektowne sceny i multimedia</span>
+    </a>
+    <a href="aplikacja.html" class="feature-item">
+      <span class="feature-icon">📱</span><span>Pełna aplikacja i kontrola</span>
+    </a>
+  </div>
+</section>
+
+  <!-- ======================================== -->
+  <!-- SEKCJA KARUZELI URZĄDZEŃ LOXONE -->
+  <!-- ======================================== -->
+  <section class="loxone-devices">
+    <h2>Najważniejsze urządzenia Loxone</h2>
+
+    <div class="carousel-container">
+      <button class="carousel-btn prev">‹</button>
+      <div class="carousel">
+        <div class="card">
+          <img src="./images/miniserver.jpg" alt="Miniserver">
+          <h3>Miniserver</h3>
+          <p>Serce systemu Loxone — steruje oświetleniem, ogrzewaniem, bezpieczeństwem i multimediami.</p>
+        </div>
+
+        <div class="card">
+          <img src="./images/audioserver.jpg" alt="Audioserver">
+          <h3>Audioserver</h3>
+          <p>Centralny system audio — odtwarza muzykę w różnych strefach, obsługuje streaming i radio internetowe.</p>
+        </div>
+
+        <div class="card">
+          <img src="./images/tree-extension.png" alt="Tree Extension">
+          <h3>Tree Extension</h3>
+          <p>Rozszerzenie umożliwiające szybkie i łatwe podłączanie urządzeń Loxone Tree — minimalizuje okablowanie.</p>
+        </div>
+
+        <div class="card">
+          <img src="./images/air-base-extension.jpg" alt="Air Base Extension">
+          <h3>Air Base Extension</h3>
+          <p>Bezprzewodowe rozszerzenie — idealne do modernizacji budynków, pozwala sterować urządzeniami bez kabli.</p>
+        </div>
+
+        <div class="card">
+          <img src="./images/relay-extension.jpg" alt="Relay Extension">
+          <h3>Relay Extension</h3>
+          <p>Moduł przekaźnikowy do sterowania oświetleniem, roletami i urządzeniami elektrycznymi.</p>
+        </div>
+      </div>
+      <button class="carousel-btn next">›</button>
+    </div>
+  </section>
+
+  <script>
+    const carousel = document.querySelector('.carousel');
+    const cards = Array.from(carousel.children);
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+    const cardWidth = 320 + 20;
+    let index = 0;
+    let autoScroll;
+
+    cards.forEach(card => carousel.appendChild(card.cloneNode(true)));
+
+    function updateCarousel() {
+      carousel.style.transition = 'transform 0.6s ease-in-out';
+      carousel.style.transform = `translateX(-${index * cardWidth}px)`;
+    }
+
+    function nextCard() {
+      index++;
+      updateCarousel();
+
+      if (index >= cards.length) {
+        setTimeout(() => {
+          carousel.style.transition = 'none';
+          index = 0;
+          carousel.style.transform = `translateX(0)`;
+        }, 600);
+      }
+    }
+
+    function prevCard() {
+      index--;
+      if (index < 0) {
+        carousel.style.transition = 'none';
+        index = cards.length - 1;
+        carousel.style.transform = `translateX(-${index * cardWidth}px)`;
+        setTimeout(() => {
+          updateCarousel();
+        }, 20);
+      } else {
+        updateCarousel();
+      }
+    }
+
+    nextBtn.addEventListener('click', nextCard);
+    prevBtn.addEventListener('click', prevCard);
+
+    // Auto przewijanie
+    function startAuto() {
+      autoScroll = setInterval(nextCard, 4000);
+    }
+
+    function stopAuto() {
+      clearInterval(autoScroll);
+    }
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    // Swipe (dotyk)
+    let startX = 0;
+    let isDragging = false;
+
+    carousel.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      stopAuto();
+    });
+
+    carousel.addEventListener('touchmove', e => {
+      if (!isDragging) return;
+      const diff = e.touches[0].clientX - startX;
+      carousel.style.transform = `translateX(calc(-${index * cardWidth}px + ${diff}px))`;
+    });
+
+    carousel.addEventListener('touchend', e => {
+      isDragging = false;
+      const diff = e.changedTouches[0].clientX - startX;
+      if (diff > 50) prevCard();
+      else if (diff < -50) nextCard();
+      else updateCarousel();
+      startAuto();
+    });
+
+    startAuto();
+  </script>
+
+  <section class="why-us">
+    <h2>Kompleksowa realizacja InstalSmart</h2>
+    <p>Od projektu po uruchomienie — wszystko pod naszą kontrolą.</p>
+    <ul>
+      <li>Pełny nadzór prac</li>
+      <li>Profesjonalny montaż i konfiguracja</li>
+      <li>Wsparcie po instalacji</li>
+    </ul>
+  </section>
+
+  <section class="cta">
+    <h2>Chcesz poznać możliwości Loxone?</h2>
+    <p>Doradzimy, zaprojektujemy i wykonamy cały system.</p>
+    <a class="btn" href="kontakt.html">Zapytaj o wycenę</a>
+  </section>
+
+</main>
+
+  <div id="site-footer" class="footer-placeholder"></div>
+
+  <!-- Styl lokalny tylko dla karuzeli -->
+  <style>
+    .loxone-devices {
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      padding: 40px 0;
+      background-color: #f7f7f7;
+    }
+
+    .loxone-devices h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #222;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .card {
+      flex: 0 0 300px;
+      background: #fff;
+      border-radius: 16px;
+      margin: 0 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #0f9d30;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+
+    .carousel-btn:hover {
+      background: #0c7c2e;
+    }
+
+    .carousel-btn.prev {
+      left: -10px;
+    }
+
+    .carousel-btn.next {
+      right: -10px;
+    }
+  </style>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
