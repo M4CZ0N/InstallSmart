@@ -148,6 +148,282 @@
         flex: 0 0 80%;
       }
     }
+    .loxone-hex-section {
+      text-align: center;
+      color: #222;
+      font-family: "Inter", sans-serif;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
+      padding-top: 0px;
+
+      
+    }
+
+    .honeycomb {
+      position: relative;
+      width: 560px; /* nieco szerszy układ */
+      height: 430px;
+      margin: 0 auto;
+    }
+
+    /* --- Styl heksów --- */
+    .hex {
+      width: 140px;
+      aspect-ratio: 1;
+      background: radial-gradient(circle at 30% 30%, #00ff08 0%, #00c04b 50%, #008f2f 100%);
+      clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+      border-radius: 12px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+
+      /* tutaj JEDNA, poprawna deklaracja box-shadow (wszystkie efekty razem) */
+      box-shadow:
+        0 0 25px rgba(0, 255, 100, 0.45),    /* zielony glow zew. */
+        0 8px 18px rgba(0,0,0,0.25),          /* ciemniejszy cień zew. */
+        inset 0 0 15px rgba(255,255,255,0.28),/* wewnętrzny highlight */
+        inset -10px -10px 25px rgba(0,0,0,0.28);/* wewnętrzny cień */
+      
+      transform: rotate(90deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    }
+
+    /* Tekst i emoji wewnątrz heksa */
+    .hex span,
+    .hex p {
+      transform: rotate(-90deg);
+    }
+
+    .hex span {
+      font-size: 1.9rem;
+      margin-bottom: 8px;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    }
+
+    .hex p {
+      margin: 0;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* --- Efekt refleksu świetlnego --- */
+    .hex::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 15%;
+      width: 70%;
+      height: 25%;
+      background: radial-gradient(circle at top left, rgba(255,255,255,0.8), rgba(255,255,255,0) 70%);
+      opacity: 0.4;
+      border-radius: 50%;
+      filter: blur(6px);
+      transform: rotate(-90deg);
+    }
+
+    /* --- Efekt hover: mocniejsze świecenie --- */
+    .hex:hover {
+      transform: rotate(90deg) scale(1.07);
+      box-shadow:
+        0 0 35px rgba(0, 255, 120, 0.85),
+        inset 0 0 18px rgba(255, 255, 255, 0.4),
+        inset -12px -12px 25px rgba(0, 0, 0, 0.35);
+      filter: brightness(1.15);
+    }
+
+    /* --- Układ z "Audio" na dole --- */
+    .hex.lighting { top: 0; left: 220px; }
+    .hex.access { top: 65px; left: 110px; }
+    .hex.energy.center { top: 130px; left: 220px; }
+    .hex.shading { top: 65px; left: 330px; }
+    .hex.security { top: 195px; left: 110px; }
+    .hex.climate { top: 195px; left: 330px; }
+    .hex.audio { top: 258px; left: 220px; }
+    .hex {
+  width: 140px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 30% 30%, #00ff73 0%, #00c04b 50%, #008f2f 100%);
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  border-radius: 12px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  box-shadow:
+    0 0 25px rgba(0, 255, 100, 0.45),
+    0 8px 18px rgba(0,0,0,0.25),
+    inset 0 0 15px rgba(255,255,255,0.28),
+    inset -10px -10px 25px rgba(0,0,0,0.28);
+  transform: rotate(90deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+.hex img,
+.hex p {
+  transform: rotate(-90deg);
+}
+
+.hex img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+.hex p {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.hex:hover {
+  transform: rotate(90deg) scale(1.07);
+  box-shadow:
+    0 0 35px rgba(0, 255, 120, 0.85),
+    inset 0 0 18px rgba(255, 255, 255, 0.4),
+    inset -12px -12px 25px rgba(0, 0, 0, 0.35);
+  filter: brightness(1.15);
+}
+    /* --- Responsywność --- */
+    @media (max-width: 768px) {
+      .honeycomb {
+        transform: scale(0.8);
+      }
+    }
+    @media (max-width: 600px) {
+      .loxone-hex-section {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-left: -20px;   /* lekko przesuwa w lewo */
+        margin-right: -20px;  /* wyrównuje wizualnie */
+      }
+
+      .honeycomb {
+        transform: scale(0.7);
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+    @media (max-width: 430px) {
+  .loxone-hex-section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: -25px;
+    margin-right: -25px;
+  }
+
+  .honeycomb {
+    transform: scale(0.55) translateX(-20px); /* przesunięcie w lewo */
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .hex {
+  display: flex;
+  flex-direction: row; /* poziomo, ikona + tekst obok siebie */
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* odstęp między ikoną a tekstem */
+}
+
+.hex img,
+.hex p {
+  transform: rotate(-90deg); /* utrzymuje prosty tekst i ikonę */
+}
+
+.hex img {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+  margin-bottom: 0; /* usuwa stary odstęp pionowy */
+}
+
+.hex p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: white;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+}
+.hex-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transform: rotate(-90deg); /* odwraca obrót wnętrza */
+}
+
+.hex-inner img {
+  width: 35px;
+  height: auto;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+.hex-inner p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: white;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.hex-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  /* odwracamy obrót samego heksa (heks ma rotate(90deg)), 
+     więc wnętrze ustawiamy do normalnej orientacji */
+  transform: rotate(-90deg);
+}
+
+/* WAŻNE: nadpisujemy wcześniejsze reguły, które mogły obracać img/p.
+   Używamy selektora z .hex .hex-inner aby mieć większą specyficzność. */
+.hex .hex-inner img,
+.hex .hex-inner p,
+.hex .hex-inner span {
+  transform: none !important;
+}
+
+/* Drobne dopasowania rozmiarów/odstępów */
+.hex .hex-inner img {
+  width: 36px;
+  height: auto;
+  margin: 0;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+}
+
+.hex .hex-inner p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: white;
+  white-space: nowrap;
+}
+.hex {
+  background: radial-gradient(circle at 30% 30%, #4CAF50 0%, #43a047 50%, #3b8e3b 100%) !important;
+  box-shadow:
+    0 0 25px rgba(76, 175, 80, 0.5),
+    0 8px 18px rgba(0, 0, 0, 0.25),
+    inset 0 0 15px rgba(255, 255, 255, 0.2),
+    inset -10px -10px 25px rgba(0, 0, 0, 0.3) !important;
+    text-decoration: none;
+}
+
+.hex:hover {
+  box-shadow:
+    0 0 35px rgba(76, 175, 80, 0.85),
+    inset 0 0 18px rgba(255, 255, 255, 0.3),
+    inset -12px -12px 25px rgba(0, 0, 0, 0.35) !important;
+  filter: brightness(1.1);
+}
   </style>
 </head>
 <body>
@@ -168,29 +444,60 @@
 
   <section class="loxone-intro">
     <h2>Automatyka domu z Loxone</h2>
-    <p>Loxone to system, który automatyzuje Twój dom - oświetlenie, ogrzewanie, zacienianie, bezpieczeństwo i multimedia działają razem, bez ciągłego sterowania.</p>
+    <p>Loxone to inteligentny system, który automatyzuje Twój dom. Oświetlenie, ogrzewanie, zacienianie, bezpieczeństwo i multimedia współpracują, by zapewnić komfort, oszczędność i pełną kontrolę – bez konieczności ciągłego sterowania.</p>
   </section>
+  <hr>
+  <section class="loxone-hex-section">
+  <h2>Co zyskujesz dzięki Loxone?</h2>
 
-  <section class="loxone-features">
-    <div class="features-header">
-      <h2>Co zyskujesz dzięki Loxone?</h2>
-    </div>
-    <section>
-  <div class="features-grid">
-    <a href="oswietlenie.html" class="feature-item">
-      <span class="feature-icon">💡</span><span>Automatyczne oświetlenie</span>
+  <div class="honeycomb">
+    <a class="hex audio" href="audio.html">
+      <div class="hex-inner">
+        <img style="width: 40px; height:auto" src="images/audio-icon.png" alt="Audio">
+        <p>Audio</p>
+      </div>
     </a>
-    <a href="temperatura.html" class="feature-item">
-      <span class="feature-icon">🌡️</span><span>Komfortowa temperatura</span>
+
+    <a class="hex access" href="aplikacja.html">
+      <div class="hex-inner">
+        <img style="width: 35px; height:auto" src="images/phone-icon.png" alt="Access">
+        <p>Aplikacja</p>
+      </div>
     </a>
-    <a href="ochrona.html" class="feature-item">
-      <span class="feature-icon">🔒</span><span>Bezpieczny smart home</span>
+
+    <a class="hex security" href="ochrona.html">
+      <div class="hex-inner">
+        <img src="images/lock-icon.png" alt="Security">
+        <p>Security</p>
+      </div>
     </a>
-    <a href="energia.html" class="feature-item">
-      <span class="feature-icon">⚡</span><span>Zarządzanie energią</span>
+
+    <a class="hex lighting" href="oswietlenie.html">
+      <div class="hex-inner">
+        <img style="width: 55px; height:auto" src="images/light-icon.png" alt="Lighting">
+        <p>Lighting</p>
+      </div>
     </a>
-    <a href="aplikacja.html" class="feature-item">
-      <span class="feature-icon">📱</span><span>Pełna aplikacja i kontrola</span>
+
+    <a class="hex energy center" href="energia.html">
+      <div class="hex-inner">
+        <img style="width: 30px; height:auto" src="images/energy-icon.png" alt="Energy">
+        <p>Energy</p>
+      </div>
+    </a>
+
+    <a class="hex shading" href="zciemnianie.html">
+      <div class="hex-inner">
+        <img style="width: 35px; height:auto" src="images/shade-icon.png" alt="Shading">
+        <p>Shading</p>
+      </div>
+    </a>
+
+    <a class="hex climate" href="temperatura.html">
+      <div class="hex-inner">
+        <img style="width: 53px; height:auto" src="images/temp-icon.png" alt="Climate">
+        <p>Climate</p>
+      </div>
     </a>
   </div>
 </section>
@@ -414,7 +721,7 @@
       height: 40px;
       font-size: 20px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: 0.3s;
       z-index: 10;
     }
 
