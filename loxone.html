@@ -8,245 +8,177 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="images/logo-favicon.ico" type="image/x-icon">
   <style>
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #fff;
-      color: #333;
-    }
 
-    .hero {
-      position: relative;
-      height: 60vh;
-      overflow: hidden;
-    }
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  color: #333;
+}
 
-    .hero img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.6);
-    }
+/* --- HERO --- */
+.hero {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* wyśrodkowanie pionowe */
+  align-items: center;     /* wyśrodkowanie poziome */
+  text-align: center;
+}
 
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: white;
-      max-width: 700px;
-    }
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+}
 
-    .hero-content h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
+.hero-content {
+  position: relative; /* usunięto absolute i transform */
+  max-width: 700px;
+  color: white;
+}
 
-    .btn {
-      background: #4CAF50;
-      color: white;
-      padding: 10px 25px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-    }
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
 
-    .btn:hover {
-      background: #3b8e3b;
-    }
+.btn {
+  background: #4CAF50;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
 
-    /* --- Sekcja urządzeń Loxone --- */
-    .loxone-devices {
-      text-align: center;
-      padding: 60px 0;
-      background-color: #f5f5f5;
-      position: relative;
-    }
+.btn:hover {
+  background: #3b8e3b;
+}
 
-    .loxone-devices h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
+/* --- Sekcja urządzeń Loxone --- */
+.loxone-devices {
+  text-align: center;
+  padding: 60px 0;
+  background-color: #f5f5f5;
+  position: relative;
+}
 
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+.loxone-devices h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
 
-    .carousel {
-      display: flex;
-      gap: 20px;
-      transition: transform 0.6s ease-in-out;
-    }
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    .card {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      flex: 0 0 300px;
-      padding: 20px;
-      text-align: center;
-      user-select: none;
-    }
+.carousel {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.6s ease-in-out;
+}
 
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
+.card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex: 0 0 300px;
+  padding: 20px;
+  text-align: center;
+  user-select: none;
+}
 
-    .card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
 
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.4;
-    }
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #333;
+}
 
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-      font-size: 1.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-      z-index: 10;
-    }
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
 
-    .carousel-btn:hover {
-      background: #3b8e3b;
-    }
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  z-index: 10;
+}
 
-    .prev {
-      left: 20px;
-    }
+.carousel-btn:hover {
+  background: #3b8e3b;
+}
 
-    .next {
-      right: 20px;
-    }
+.prev {
+  left: 20px;
+}
 
-    /* Dodatkowo: responsywność */
-    @media (max-width: 768px) {
-      .card {
-        flex: 0 0 80%;
-      }
-    }
-    .loxone-hex-section {
-      text-align: center;
-      color: #222;
-      font-family: "Inter", sans-serif;
-      margin-bottom: 0px;
-      padding-bottom: 0px;
-      padding-top: 0px;
+.next {
+  right: 20px;
+}
 
-      
-    }
+/* Dodatkowo: responsywność */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 80%;
+  }
+}
 
-    .honeycomb {
-      position: relative;
-      width: 560px; /* nieco szerszy układ */
-      height: 430px;
-      margin: 0 auto;
-    }
+/* --- Sekcja plaster miodu --- */
+.loxone-hex-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #222;
+  font-family: "Inter", sans-serif;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
 
-    /* --- Styl heksów --- */
-    .hex {
-      width: 140px;
-      aspect-ratio: 1;
-      background: radial-gradient(circle at 30% 30%, #00ff08 0%, #00c04b 50%, #008f2f 100%);
-      clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-      border-radius: 12px;
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 600;
+.honeycomb {
+  width: 560px;
+  height: 430px;
+  margin: 0;
+  transform: scale(1);
+  position: relative;
+}
 
-      /* tutaj JEDNA, poprawna deklaracja box-shadow (wszystkie efekty razem) */
-      box-shadow:
-        0 0 25px rgba(0, 255, 100, 0.45),    /* zielony glow zew. */
-        0 8px 18px rgba(0,0,0,0.25),          /* ciemniejszy cień zew. */
-        inset 0 0 15px rgba(255,255,255,0.28),/* wewnętrzny highlight */
-        inset -10px -10px 25px rgba(0,0,0,0.28);/* wewnętrzny cień */
-      
-      transform: rotate(90deg);
-      transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-    }
-
-    /* Tekst i emoji wewnątrz heksa */
-    .hex span,
-    .hex p {
-      transform: rotate(-90deg);
-    }
-
-    .hex span {
-      font-size: 1.9rem;
-      margin-bottom: 8px;
-      text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
-    }
-
-    .hex p {
-      margin: 0;
-      font-size: 0.95rem;
-      letter-spacing: 0.3px;
-    }
-
-    /* --- Efekt refleksu świetlnego --- */
-    .hex::before {
-      content: "";
-      position: absolute;
-      top: 10%;
-      left: 15%;
-      width: 70%;
-      height: 25%;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.8), rgba(255,255,255,0) 70%);
-      opacity: 0.4;
-      border-radius: 50%;
-      filter: blur(6px);
-      transform: rotate(-90deg);
-    }
-
-    /* --- Efekt hover: mocniejsze świecenie --- */
-    .hex:hover {
-      transform: rotate(90deg) scale(1.07);
-      box-shadow:
-        0 0 35px rgba(0, 255, 120, 0.85),
-        inset 0 0 18px rgba(255, 255, 255, 0.4),
-        inset -12px -12px 25px rgba(0, 0, 0, 0.35);
-      filter: brightness(1.15);
-    }
-
-    /* --- Układ z "Audio" na dole --- */
-    .hex.lighting { top: 0; left: 220px; }
-    .hex.access { top: 65px; left: 110px; }
-    .hex.energy.center { top: 130px; left: 220px; }
-    .hex.shading { top: 65px; left: 330px; }
-    .hex.security { top: 195px; left: 110px; }
-    .hex.climate { top: 195px; left: 330px; }
-    .hex.audio { top: 258px; left: 220px; }
-    .hex {
+/* --- Styl heksów --- */
+.hex {
   width: 140px;
   aspect-ratio: 1;
-  background: radial-gradient(circle at 30% 30%, #00ff73 0%, #00c04b 50%, #008f2f 100%);
+  background: radial-gradient(circle at 30% 30%, #4CAF50 0%, #43a047 50%, #3b8e3b 100%) !important;
   clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
   border-radius: 12px;
   position: absolute;
@@ -257,142 +189,37 @@
   color: white;
   font-weight: 600;
   box-shadow:
-    0 0 25px rgba(0, 255, 100, 0.45),
-    0 8px 18px rgba(0,0,0,0.25),
-    inset 0 0 15px rgba(255,255,255,0.28),
-    inset -10px -10px 25px rgba(0,0,0,0.28);
+    0 0 25px rgba(76, 175, 80, 0.5),
+    0 8px 18px rgba(0, 0, 0, 0.25),
+    inset 0 0 15px rgba(255, 255, 255, 0.2),
+    inset -10px -10px 25px rgba(0, 0, 0, 0.3) !important;
   transform: rotate(90deg);
   transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-}
-
-.hex img,
-.hex p {
-  transform: rotate(-90deg);
-}
-
-.hex img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 8px;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
-}
-
-.hex p {
-  margin: 0;
-  font-size: 0.95rem;
-  letter-spacing: 0.3px;
+  text-decoration: none;
 }
 
 .hex:hover {
-  transform: rotate(90deg) scale(1.07);
   box-shadow:
-    0 0 35px rgba(0, 255, 120, 0.85),
-    inset 0 0 18px rgba(255, 255, 255, 0.4),
-    inset -12px -12px 25px rgba(0, 0, 0, 0.35);
-  filter: brightness(1.15);
-}
-    /* --- Responsywność --- */
-    @media (max-width: 768px) {
-      .honeycomb {
-        transform: scale(0.8);
-      }
-    }
-    @media (max-width: 600px) {
-      .loxone-hex-section {
-        padding-top: 30px;
-        padding-bottom: 30px;
-        margin-left: -20px;   /* lekko przesuwa w lewo */
-        margin-right: -20px;  /* wyrównuje wizualnie */
-      }
-
-      .honeycomb {
-        transform: scale(0.7);
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-    }
-    @media (max-width: 430px) {
-  .loxone-hex-section {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-left: -25px;
-    margin-right: -25px;
-  }
-
-  .honeycomb {
-    transform: scale(0.55) translateX(-20px); /* przesunięcie w lewo */
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  .hex {
-  display: flex;
-  flex-direction: row; /* poziomo, ikona + tekst obok siebie */
-  align-items: center;
-  justify-content: center;
-  gap: 10px; /* odstęp między ikoną a tekstem */
+    0 0 35px rgba(76, 175, 80, 0.85),
+    inset 0 0 18px rgba(255, 255, 255, 0.3),
+    inset -12px -12px 25px rgba(0, 0, 0, 0.35) !important;
+  filter: brightness(1.1);
 }
 
-.hex img,
-.hex p {
-  transform: rotate(-90deg); /* utrzymuje prosty tekst i ikonę */
-}
-
-.hex img {
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
-  margin-bottom: 0; /* usuwa stary odstęp pionowy */
-}
-
-.hex p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: white;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-}
-}
 .hex-inner {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transform: rotate(-90deg); /* odwraca obrót wnętrza */
-}
-
-.hex-inner img {
-  width: 35px;
-  height: auto;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
-}
-
-.hex-inner p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: white;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-}
-.hex-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  /* odwracamy obrót samego heksa (heks ma rotate(90deg)), 
-     więc wnętrze ustawiamy do normalnej orientacji */
   transform: rotate(-90deg);
 }
 
-/* WAŻNE: nadpisujemy wcześniejsze reguły, które mogły obracać img/p.
-   Używamy selektora z .hex .hex-inner aby mieć większą specyficzność. */
 .hex .hex-inner img,
 .hex .hex-inner p,
 .hex .hex-inner span {
   transform: none !important;
 }
 
-/* Drobne dopasowania rozmiarów/odstępów */
 .hex .hex-inner img {
   width: 36px;
   height: auto;
@@ -407,155 +234,44 @@
   color: white;
   white-space: nowrap;
 }
-.hex {
-  background: radial-gradient(circle at 30% 30%, #4CAF50 0%, #43a047 50%, #3b8e3b 100%) !important;
-  box-shadow:
-    0 0 25px rgba(76, 175, 80, 0.5),
-    0 8px 18px rgba(0, 0, 0, 0.25),
-    inset 0 0 15px rgba(255, 255, 255, 0.2),
-    inset -10px -10px 25px rgba(0, 0, 0, 0.3) !important;
-    text-decoration: none;
-}
 
-.hex:hover {
-  box-shadow:
-    0 0 35px rgba(76, 175, 80, 0.85),
-    inset 0 0 18px rgba(255, 255, 255, 0.3),
-    inset -12px -12px 25px rgba(0, 0, 0, 0.35) !important;
-  filter: brightness(1.1);
-}
-html, body {
-  overflow-x: hidden; /* blokuje poziome przewijanie */
-  width: 100%;
-  max-width: 100%;
-}
-.hex-layout-mobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-}
+/* Układ heksów */
+.hex.lighting { top: 0; left: 220px; }
+.hex.access { top: 65px; left: 110px; }
+.hex.energy.center { top: 130px; left: 220px; }
+.hex.shading { top: 65px; left: 330px; }
+.hex.security { top: 195px; left: 110px; }
+.hex.climate { top: 195px; left: 330px; }
+.hex.audio { top: 258px; left: 220px; }
 
-/* Domyślnie tekst ukryty na desktopie */
-.loxone-description {
-  display: none;
-  max-width: 320px;
-  color: #333;
-  text-align: left;
-  line-height: 1.5;
-  font-size: 1rem;
-}
+/* --- Responsywność honeycomb --- */
+@media (max-width: 900px) { .honeycomb { transform: scale(0.85); } }
+@media (max-width: 700px) { .honeycomb { transform: scale(0.7); } }
+@media (max-width: 500px) { .honeycomb { transform: scale(0.55); } }
+@media (max-width: 380px) { .honeycomb { transform: scale(0.48); } }
 
-/* Pokaż opis obok plastra tylko na telefonach */
-@media (max-width: 768px) {
-  .hex-layout-mobile {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 15px;
-    padding: 0 10px;
-  }
-
-  .loxone-description {
-    display: block;
-  }
-
-  .honeycomb {
-    transform: scale(0.7);
-    margin: 0;
-  }
-}
-
-/* Dla bardzo małych ekranów */
-@media (max-width: 480px) {
-  .hex-layout-mobile {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .loxone-description {
-    text-align: center;
-    margin-bottom: 15px;
-  }
-
-  .honeycomb {
-    transform: scale(0.65);
-  }
-
-}
-/* Blokuje poziome przewijanie */
+/* --- Zabezpieczenie przewijania poziomego --- */
 html, body {
   overflow-x: hidden;
   width: 100%;
   max-width: 100%;
 }
 
-/* Układ tekstu i plastra */
-.hex-layout-mobile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-/* Domyślnie tekst ukryty */
-.loxone-description {
-  display: none;
-  position: relative;
-  z-index: 2;
-  color: #222;
-  max-width: 320px;
-  line-height: 1.5;
-  font-size: 1rem;
-  font-weight: 400;
-  text-align: left;
-}
-
-/* Na telefonach — pokazujemy tekst i przesuwamy go na plaster */
-@media (max-width: 468px) {
-  .hex-layout-mobile {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
-  .loxone-description {
-    display: block;
-    position: absolute;
-    left: 5%;
-    top: 35%;
-    width: 220px;
-    color: #222;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.75); /* lekko przeźroczysty dla efektu "nachodzenia" */
-    padding: 10px 12px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-
-  .honeycomb {
-    transform: scale(0.75);
-    margin: 0 auto;
-  }
-}
-
-/* Dla bardzo małych ekranów — opis nad plastrem */
+/* --- RESPONSYWNOŚĆ HERO --- */
 @media (max-width: 480px) {
-  .loxone-description {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 90%;
-    margin: 0 auto 15px auto;
-    background: none;
-    box-shadow: none;
-    text-align: center;
+  .hero {
+    height: auto;
+    padding: 60px 20px;
   }
-
-  .honeycomb {
-    transform: scale(0.6);
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
   }
 }
 
@@ -581,23 +297,62 @@ html, body {
     <h2>Automatyka domu z Loxone</h2>
     <p>Loxone to inteligentny system, który automatyzuje Twój dom. Oświetlenie, ogrzewanie, zacienianie, bezpieczeństwo i multimedia współpracują, by zapewnić komfort, oszczędność i pełną kontrolę – bez konieczności ciągłego sterowania.</p>
   </section>
-  <hr>
+  <hr style="border: 1px solid #cbcbcb;">
   <section class="loxone-hex-section">
-    <h2>Co zyskujesz dzięki Loxone?</h2>
+  <h2>Co zyskujesz dzięki Loxone?</h2>
 
-    <div class="hex-layout-mobile">
-      <div class="loxone-description">
-        <p>
-          System <strong>Loxone</strong> automatycznie zarządza Twoim domem — oświetleniem, temperaturą, energią i muzyką. 
-          Wszystko działa razem, by zapewnić komfort, bezpieczeństwo i oszczędność bez Twojej ingerencji.
-        </p>
+  
+  <div class="honeycomb">
+    <a class="hex audio" href="audio.html">
+      <div class="hex-inner">
+        <img style="width: 40px; height:auto" src="images/audio-icon.png" alt="Audio">
+        <p>Audio</p>
       </div>
+    </a>
 
-      <div class="honeycomb">
-        <a class="hex audio" href="audio.html"> <div class="hex-inner"> <img style="width: 40px; height:auto" src="images/audio-icon.png" alt="Audio"> <p>Audio</p> </div> </a> <a class="hex access" href="aplikacja.html"> <div class="hex-inner"> <img style="width: 35px; height:auto" src="images/phone-icon.png" alt="Access"> <p>Aplikacja</p> </div> </a> <a class="hex security" href="ochrona.html"> <div class="hex-inner"> <img src="images/lock-icon.png" alt="Security"> <p>Ochrona</p> </div> </a> <a class="hex lighting" href="oswietlenie.html"> <div class="hex-inner"> <img style="width: 55px; height:auto" src="images/light-icon.png" alt="Lighting"> <p>Światło</p> </div> </a> <a class="hex energy center" href="energia.html"> <div class="hex-inner"> <img style="width: 30px; height:auto" src="images/energy-icon.png" alt="Energy"> <p>Energia</p> </div> </a> <a class="hex shading" href="zciemnianie.html"> <div class="hex-inner"> <img style="width: 35px; height:auto" src="images/shade-icon.png" alt="Shading"> <p>Shading</p> </div> </a> <a class="hex climate" href="temperatura.html"> <div class="hex-inner"> <img style="width: 53px; height:auto" src="images/temp-icon.png" alt="Climate"> <p>Ciepło</p> </div> </a>
+    <a class="hex access" href="aplikacja.html">
+      <div class="hex-inner">
+        <img style="width: 35px; height:auto" src="images/phone-icon.png" alt="Access">
+        <p>Aplikacja <br> Ochrona</p>
       </div>
-    </div>
-  </section>
+    </a>
+
+    <a class="hex security" href="ochrona.html">
+      <div class="hex-inner">
+        <img src="images/lock-icon.png" alt="Security">
+        <p>Ochrona</p>
+      </div>
+    </a>
+
+    <a class="hex lighting" href="oswietlenie.html">
+      <div class="hex-inner">
+        <img style="width: 55px; height:auto" src="images/light-icon.png" alt="Lighting">
+        <p>Światło</p>
+      </div>
+    </a>
+
+    <a class="hex energy center" href="energia.html">
+      <div class="hex-inner">
+        <img style="width: 30px; height:auto" src="images/energy-icon.png" alt="Energy">
+        <p>Energia</p>
+      </div>
+    </a>
+
+    <a class="hex shading" href="zciemnianie.html">
+      <div class="hex-inner">
+        <img style="width: 32px; height:auto" src="images/shade-icon.png" alt="Shading">
+        <p>Zacienianie</p>
+      </div>
+    </a>
+
+    <a class="hex climate" href="temperatura.html">
+      <div class="hex-inner">
+        <img style="width: 53px; height:auto" src="images/temp-icon.png" alt="Climate">
+        <p>Klimat</p>
+      </div>
+    </a>
+  </div>
+</section>
 
   <!-- ======================================== -->
   <!-- SEKCJA KARUZELI URZĄDZEŃ LOXONE -->
